@@ -111,7 +111,11 @@ export default {
     async loginOrRegister() {
       if (this.passwordLengthValidation()) {
         let data = { email: this.username, password: this.password };
-        await this.$store.dispatch("auth/login", data);
+        try {
+          await this.$store.dispatch("auth/login", data);
+        } catch (error) {
+          alert(error.message);
+        }
       }
     },
   },
@@ -121,6 +125,9 @@ export default {
         ? this.stateObj.register.message
         : this.stateObj.login.message;
     },
+  },
+  created() {
+    alert("donnt forget to find out if the user is logged in here");
   },
 };
 </script>

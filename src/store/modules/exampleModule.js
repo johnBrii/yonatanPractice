@@ -17,18 +17,22 @@ export default {
         },
 
         actions: {
-            "auth/login": async (context) => {
+            "auth/login": async (context, payload) => {
 
                 await axios.post('https://claplablmsapi.clap.co.il/auth/login/1',
                     {
-                        email: "admin@gmail.com",
-                        password: 321123
+                        email: payload.email,
+                        password: payload.password
                     }
                 ).then((response) => {
-                    alert("got response")
                     if (response.status === 200) {
+                        alert("got 200")
                         context.commit("auth/login");
 
+
+                    }
+                    else {
+                        alert("didnt get good response")
 
                     }
                 });
