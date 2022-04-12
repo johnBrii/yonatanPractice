@@ -28,6 +28,7 @@
               type="password"
               placeholder="password"
               required
+              @keyup="passwordLengthValidation"
             ></v-text-field>
 
             <v-text-field
@@ -36,14 +37,21 @@
               name="confirmPassword"
               label="Confirm Password"
               type="password"
-              placeholder="cocnfirm password"
+              placeholder="confirm password"
               required
             ></v-text-field>
             <div class="red--text">{{ errorMessage }}</div>
-            <v-btn type="submit" class="mt-4" color="primary" value="log in">{{
-              isRegister ? stateObj.register.name : stateObj.login.name
-            }}</v-btn>
-            <div class="grey--text mt-4" v-on:click="isRegister = !isRegister">
+            <v-btn
+              type="submit"
+              @click="loginOrRegister"
+              class="mt-4"
+              color="primary"
+              value="log in"
+              >{{
+                isRegister ? stateObj.register.name : stateObj.login.name
+              }}</v-btn
+            >
+            <div class="grey--text mt-4" @click="isRegister = !isRegister">
               {{ toggleMessage }}
             </div>
           </form>
@@ -58,6 +66,7 @@ export default {
   name: "App",
   data() {
     return {
+      formValidated: true,
       username: "",
       password: "",
       confirmPassword: "",
@@ -87,6 +96,22 @@ export default {
         this.$refs.form.reset();
       } else {
         this.errorMessage = "password did not match";
+      }
+    },
+    passwordLengthValidation() {
+      if (this.password.length < 6) {
+        this.errorMessage = "password not long enough";
+        return false;
+      } else {
+        this.errorMessage = "";
+
+        return true;
+      }
+    },
+    async loginOrRegister() {
+      if (this.passwordLengthValidation()) {
+        let data = { email: this.username, password: this.password };
+        await this.$store.dispatch("auth/login", data);
       }
     },
   },
