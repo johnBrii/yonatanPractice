@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark> </v-app-bar>
+    <v-app-bar app color="primary" dark
+      ><v-icon @click="router.push('/DashBoard')">mdi-home</v-icon>
+    </v-app-bar>
 
     <v-main>
       <router-view />
@@ -10,11 +12,13 @@
 
 <script>
 // import Login from "./views/Login.vue";
+import router from "./router/index";
 
 export default {
   name: "App",
 
   data: () => ({
+    router,
     //
   }),
 };
