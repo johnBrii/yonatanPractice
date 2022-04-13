@@ -102,12 +102,11 @@ export default {
       }
     },
     passwordLengthValidation() {
-      if (this.password.length < 6 && this.password.length > 0) {
+      if (this.password?.length < 6 && this.password?.length > 0) {
         this.errorMessage = "password not long enough";
         return false;
       } else {
         this.errorMessage = "";
-
         return true;
       }
     },
@@ -121,7 +120,6 @@ export default {
           setTimeout(() => {
             router.push({ path: "/DashBoard" });
           }, 500);
-          console.log(this.$store.exampleModule.state.currentUser);
         } catch (e) {
           this.errorMessage = "invalid credentials";
           this.username = "";
