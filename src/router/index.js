@@ -33,7 +33,7 @@ VueRouter.beforeEach(async (to, from, next) => {
                 next()
 
             }
-        } catch (error) {
+        } catch (e) {
             VueRouter.push({ path: '/' })
         }
     }

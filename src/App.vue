@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark
-      ><v-icon @click="router.push('/DashBoard').catch(() => {})"
-        >mdi-home</v-icon
-      >
+      ><router-link to="/DashBoard"><v-icon>mdi-home </v-icon></router-link>
     </v-app-bar>
 
     <v-main>
