@@ -10,13 +10,9 @@
 </template>
 
 <script>
-import router from "./router/index";
-
 export default {
   name: "App",
 
-  data: () => ({
-    router,
-  }),
+  data: () => ({}),
 };
 </script>
