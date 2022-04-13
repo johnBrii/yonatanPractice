@@ -5,7 +5,7 @@ export default {
     state: {
         isLoggedIn: false,
         errorMsg: "login failed",
-        axiosInstance: null,
+        // axiosInstance: null,
         tokenAuth: false
 
     },
@@ -32,12 +32,10 @@ export default {
                     password: payload.password
                 }
             ).then((response) => {
-                console.log(response.data.token)
-                if (response.status === 200) {
-                    localStorage.setItem('access_token', response.data.token)
-                    context.commit("login");
-                    context.commit("Token/login");
-                }
+                localStorage.setItem('access_token', response.data.token)
+                context.commit("login");
+                context.commit("Token/login");
+
             });
         },
         "Token/login": async (context) => {
@@ -47,10 +45,8 @@ export default {
                         Authorization: `Bearer ${localStorage.getItem("access_token")}`,
                     },
                 })
-                .then((response) => {
-                    if (response.status === 200) {
-                        context.commit("Token/login");
-                    }
+                .then(() => {
+                    context.commit("Token/login");
                 });
         }
     }

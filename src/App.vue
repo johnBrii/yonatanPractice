@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark
-      ><v-icon @click="router.push('/DashBoard')">mdi-home</v-icon>
+      ><v-icon @click="router.push('/DashBoard').catch(() => {})"
+        >mdi-home</v-icon
+      >
     </v-app-bar>
 
     <v-main>
@@ -19,7 +21,6 @@ export default {
 
   data: () => ({
     router,
-    //
   }),
 };
 </script>
