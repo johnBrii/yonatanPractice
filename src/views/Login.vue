@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid fill-height>
-    <v-layout align-center justify-center>
-      <v-card class="elevation-12" width="50%">
+  <v-container fill-height>
+    <v-layout justify-center align-center>
+      <v-card class="elevation-8" width="50%">
         <v-toolbar dark color="primary">
           <v-toolbar-title
             >{{
@@ -93,7 +93,7 @@ export default {
       if (this.password == this.confirmPassword) {
         this.isRegister = false;
         this.errorMessage = "";
-        this.$refs.form.reset();
+        // this.$refs.form.reset();
       } else {
         this.errorMessage = "password did not match";
       }
@@ -113,8 +113,10 @@ export default {
         let data = { email: this.username, password: this.password };
         try {
           await this.$store.dispatch("auth/login", data);
-        } catch (error) {
-          alert(error.message);
+        } catch (e) {
+          this.errorMessage = "invalid credentials";
+          this.username = "";
+          this.password = "";
         }
       }
     },

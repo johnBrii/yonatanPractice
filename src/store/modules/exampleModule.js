@@ -31,25 +31,8 @@ export default {
 
 
                     }
-                    else {
-                        alert("didnt get good response")
-
-                    }
                 });
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
