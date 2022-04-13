@@ -62,10 +62,13 @@
 </template>
 
 <script>
+import VueRouter from "../router/index";
+// import axios from "axios";
 export default {
   name: "App",
   data() {
     return {
+      logCheck: null,
       formValidated: true,
       username: "",
       password: "",
@@ -112,7 +115,12 @@ export default {
       if (this.passwordLengthValidation()) {
         let data = { email: this.username, password: this.password };
         try {
-          await this.$store.dispatch("auth/login", data);
+          await this.$store.dispatch("login", data);
+          this.errorMessage = "login successful";
+          const router = VueRouter;
+          setTimeout(() => {
+            router.push({ path: "/dashBoard" });
+          }, 500);
         } catch (e) {
           this.errorMessage = "invalid credentials";
           this.username = "";
@@ -127,9 +135,6 @@ export default {
         ? this.stateObj.register.message
         : this.stateObj.login.message;
     },
-  },
-  created() {
-    alert("donnt forget to find out if the user is logged in here");
   },
 };
 </script>
