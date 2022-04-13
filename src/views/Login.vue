@@ -119,8 +119,9 @@ export default {
           this.errorMessage = "login successful";
           const router = VueRouter;
           setTimeout(() => {
-            router.push({ path: "/dashBoard" });
+            router.push({ path: "/DashBoard" });
           }, 500);
+          console.log(this.$store.exampleModule.state.currentUser);
         } catch (e) {
           this.errorMessage = "invalid credentials";
           this.username = "";

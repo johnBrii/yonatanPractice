@@ -6,36 +6,42 @@ export default {
         isLoggedIn: false,
         errorMsg: "login failed",
         // axiosInstance: null,
-        tokenAuth: false
+        tokenAuth: false,
+        currentUser: {}
     },
     mutations: {
         "login": (state) => {
             state.isLoggedIn = true
         },
+        userInfo(state, data) { state.currentUser = data },
         "Token/login": (state) => {
             state.tokenAuth = true
         }
     },
     getters: {
 
-        hasToken(state) { return state.tokenAuth }
+        hasToken(state) { return state.tokenAuth },
+        currentUser(state) { return state.currentUser }
 
     },
     actions: {
         login: async (context, payload) => {
 
-            await axios.post('https://claplablmsapi.clap.co.il/auth/login/1',
+            const res = await axios.post('https://claplablmsapi.clap.co.il/auth/login/1',
                 {
                     email: payload.email,
                     password: payload.password
                 }
-            ).then((response) => {
-                localStorage.setItem('access_token', response.data.token)
-                context.commit("login");
-                context.commit("Token/login");
-
-            });
+            )
+            localStorage.setItem('access_token', res.data.token)
+            context.commit("login");
+            console.log(payload);
+            context.commit("userInfo", payload);
+            context.commit("Token/login");
         },
+
+
+
         "Token/login": async (context) => {
             await axios
                 .get("https://claplablmsapi.clap.co.il/auth/checkLogin", {
@@ -43,9 +49,7 @@ export default {
                         Authorization: `Bearer ${localStorage.getItem("access_token")}`,
                     },
                 })
-                .then(() => {
-                    context.commit("Token/login");
-                });
+            context.commit("Token/login");
         }
     }
 }
