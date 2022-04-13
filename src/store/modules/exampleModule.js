@@ -7,7 +7,6 @@ export default {
         errorMsg: "login failed",
         // axiosInstance: null,
         tokenAuth: false
-
     },
     mutations: {
         "login": (state) => {
@@ -16,7 +15,6 @@ export default {
         "Token/login": (state) => {
             state.tokenAuth = true
         }
-
     },
     getters: {
 
