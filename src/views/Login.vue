@@ -99,7 +99,7 @@ export default {
       }
     },
     passwordLengthValidation() {
-      if (this.password.length < 6) {
+      if (this.password.length < 6 && this.password.length > 0) {
         this.errorMessage = "password not long enough";
         return false;
       } else {
