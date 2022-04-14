@@ -35,7 +35,6 @@ export default {
             )
             localStorage.setItem('access_token', res.data.token)
             context.commit("login");
-            console.log(payload);
             context.commit("userInfo", payload);
             context.commit("Token/login");
         },
