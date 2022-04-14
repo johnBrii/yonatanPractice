@@ -1,11 +1,32 @@
 <template>
-  <v-data-table>post</v-data-table>
+  <v-container align-center fill-height mt-n5>
+    <v-data-table
+      light
+      :headers="headers"
+      :items="posts"
+      :items-per-page="5"
+      :search="search"
+      :sort-by="['title', 'body']"
+      :sort-desc="[false, true]"
+      multi-sort
+      class="elevation-1"
+    ></v-data-table
+  ></v-container>
 </template>
 
 <script>
 export default {
   data() {
-    return { posts: [] };
+    return {
+      search: "",
+      posts: [],
+      headers: [
+        { text: "body", value: "body" },
+        { text: "id", value: "id" },
+        { text: "title", value: "title" },
+        { text: "userID ", value: "userId" },
+      ],
+    };
   },
   methods: {
     async getPosts() {
