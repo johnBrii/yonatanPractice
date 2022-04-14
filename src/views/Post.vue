@@ -10,7 +10,13 @@
       :sort-desc="[false, true]"
       multi-sort
       class="elevation-1"
-    ></v-data-table
+    >
+      <template v-slot:top>
+        <v-text-field
+          v-model="search"
+          label="search"
+          class="mx-4"
+        ></v-text-field> </template></v-data-table
   ></v-container>
 </template>
 
