@@ -2,6 +2,10 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <router-link to="/DashBoard"><v-icon>mdi-home </v-icon></router-link>
+
+      <router-link to="/Post" class="ml-4"
+        ><v-icon>mdi-message </v-icon></router-link
+      >
     </v-app-bar>
     <v-main>
       <router-view />

@@ -72,13 +72,16 @@
 <script>
 export default {
   mounted() {
-    this.$store.dispatch("axiosInstanceTokenTest");
-  data ()  ({
-    multiLine: true,
-    snackbar: false,
-    text: `I'm a multi-line snackbar.`,
-  }),
- 
+    if (this.snackbar) {
+      this.$store.dispatch("axiosInstanceTokenTest");
+    }
+  },
+  data() {
+    return {
+      multiLine: true,
+      snackbar: false,
+      text: `I'm a multi-line snackbar.`,
+    };
   },
 };
 </script>

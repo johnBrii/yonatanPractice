@@ -1,7 +1,9 @@
+
 import Vue from 'vue'
 import router from 'vue-router'
 import DashBoard from '../views/DashBoard.vue'
 import Login from "../views/Login.vue"
+import Post from "@/views/Post.vue"
 import store from '../store/index'
 
 Vue.use(router)
@@ -14,6 +16,11 @@ const VueRouter = new router({
             path: '/',
             name: 'Login',
             component: Login
+        },
+        {
+            path: '/post',
+            name: 'Post',
+            component: Post
         },
         {
             path: '/DashBoard',
