@@ -6,6 +6,41 @@
     <v-main>
       <router-view />
     </v-main>
+
+    <v-footer padless :fullscreen="$vuetify.breakpoint.mobile">
+      <v-spacer></v-spacer>
+      <v-card
+        flat
+        tile
+        class="white--text text-center"
+        color="none"
+        width="4900"
+      >
+        <v-card-text>
+          <v-btn
+            v-for="icon in icons"
+            :key="icon"
+            class="mx-4 white--text"
+            icon
+          >
+            <v-icon size="24px">
+              {{ icon }}
+            </v-icon>
+          </v-btn>
+        </v-card-text>
+
+        <v-card-text class="white--text pt-0" full-width>
+          closeApp 2022
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        </v-card-text>
+      </v-card>
+      <v-spacer></v-spacer>
+    </v-footer>
   </v-app>
 </template>
 
@@ -13,6 +48,8 @@
 export default {
   name: "App",
 
-  data: () => ({}),
+  data: () => ({
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+  }),
 };
 </script>
