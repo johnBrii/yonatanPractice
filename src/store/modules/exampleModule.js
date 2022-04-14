@@ -1,4 +1,5 @@
 import axios from "axios";
+import { tokenAxios } from "@/services/axiosInstance";
 
 export default {
 
@@ -10,6 +11,7 @@ export default {
         currentUser: {}
     },
     mutations: {
+        tokenTest: () => { alert("token test works") },
         "login": (state) => {
             state.isLoggedIn = true
         },
@@ -49,6 +51,11 @@ export default {
                     },
                 })
             context.commit("Token/login");
+        },
+
+        axiosInstanceTokenTest: async (context) => {
+            await tokenAxios.get('auth/checkLogin')
+            context.commit("tokenTest");
         }
     }
 }
