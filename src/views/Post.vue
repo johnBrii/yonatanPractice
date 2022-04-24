@@ -67,10 +67,7 @@ export default {
   methods: {
     async getPosts() {
       await this.$store.dispatch("getAll");
-      // this.posts = this.$store.state.postModule.posts;
       this.posts = this.$store.getters.posts;
-
-      console.log(this.posts);
     },
     editItem(item) {
       this.edit = true;
