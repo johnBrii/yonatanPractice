@@ -34,6 +34,13 @@
       text="edit"
       :current="current"
     />
+    <PostHandler
+      v-if="deleter"
+      @close="deleter = false"
+      :dialog="deleter"
+      text="delete"
+      :current="current"
+    />
   </v-container>
 </template>
 
@@ -45,6 +52,7 @@ export default {
     return {
       search: "",
       edit: false,
+      deleter: false,
       posts: [],
       current: {},
       headers: [
@@ -59,11 +67,17 @@ export default {
   methods: {
     async getPosts() {
       await this.$store.dispatch("getAll");
-      this.posts = this.$store.state.postModule.posts; // is getters better here?
+      // this.posts = this.$store.state.postModule.posts;
+      this.posts = this.$store.getters.posts;
+
       console.log(this.posts);
     },
     editItem(item) {
       this.edit = true;
+      this.current = item;
+    },
+    deleteItem(item) {
+      this.deleter = true;
       this.current = item;
     },
   },

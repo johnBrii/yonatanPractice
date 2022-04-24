@@ -1,6 +1,6 @@
 <template>
   <PopUp :dialog="dialog" @close="close" :text="text">
-    <v-card class="pa-8">
+    <v-card class="pa-8" color="secondary" light>
       <template v-slot>
         <h1 class="mb-6">{{ text }} post</h1>
         <v-form>
@@ -19,7 +19,7 @@
             v-model="post.body"
             label="post body"
           ></v-text-field>
-          <v-btn color="primary" @click="editDbPost">submit</v-btn>
+          <v-btn color="primary" @click="modifyPost">submit</v-btn>
         </v-form></template
       >
     </v-card></PopUp
@@ -44,8 +44,13 @@ export default {
     close() {
       this.$emit("close");
     },
-    editDbPost() {
-      this.$store.dispatch("editPost", this.post);
+    modifyPost() {
+      if (this.text === "edit") {
+        this.$store.dispatch("editPost", this.post);
+      } else {
+        this.$store.dispatch("deletePost", this.post);
+      }
+      this.close();
     },
   },
 
