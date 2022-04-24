@@ -20,26 +20,33 @@
         ></v-text-field>
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <div class="d-flex">
+        <div class="d-flex justify-space-between">
           <v-icon @click="deleteItem(item)">mdi-delete</v-icon>
           <v-icon @click="editItem(item)">mdi-pencil</v-icon>
         </div>
       </template></v-data-table
     >
     <v-spacer></v-spacer>
-    <popUp v-if="edit" :dialog="edit" :text="'edit'" @close="edit = false" />
+    <PostHandler
+      v-if="edit"
+      @close="edit = false"
+      :dialog="edit"
+      text="edit"
+      :current="current"
+    />
   </v-container>
 </template>
 
 <script>
-import PopUp from "../components/generics/PopUp.vue";
+import PostHandler from "@/components/Handlers/PostHandler.vue";
 export default {
-  components: { PopUp },
+  components: { PostHandler },
   data() {
     return {
       search: "",
       edit: false,
       posts: [],
+      current: {},
       headers: [
         { text: "body", value: "body" },
         { text: "id", value: "id" },
@@ -55,8 +62,9 @@ export default {
       this.posts = this.$store.state.postModule.posts; // is getters better here?
       console.log(this.posts);
     },
-    editItem() {
+    editItem(item) {
       this.edit = true;
+      this.current = item;
     },
   },
 

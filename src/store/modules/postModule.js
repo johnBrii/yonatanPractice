@@ -20,6 +20,9 @@ export default {
 
 
         },
+        editPost: async (context, payload) => {
+            axios.put('https://jsonplaceholder.typicode.com/posts/1', { ...payload })
+        }
 
 
     },
