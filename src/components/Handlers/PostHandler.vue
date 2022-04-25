@@ -44,9 +44,9 @@ export default {
     },
     modifyPost() {
       if (this.edit) {
-        this.$store.dispatch("post/update", this.post);
+        this.$store.dispatch("post/update", this.current);
       } else {
-        this.$store.dispatch("post/destroy", this.post);
+        this.$store.dispatch("post/destroy", this.current);
       }
       this.close();
     },
