@@ -65,7 +65,7 @@
 import VueRouter from "../router/index";
 // import axios from "axios";
 export default {
-  name: "App",
+  name: "LoginB",
   data() {
     return {
       logCheck: null,

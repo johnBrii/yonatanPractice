@@ -27,14 +27,15 @@
       </template></v-data-table
     >
     <v-spacer></v-spacer>
-    <PostHandler
+    <post-handler
       v-if="edit"
       @close="edit = false"
       :dialog="edit"
+      :edit="edit"
       text="edit"
       :current="current"
     />
-    <PostHandler
+    <post-handler
       v-if="deleter"
       @close="deleter = false"
       :dialog="deleter"
@@ -46,6 +47,7 @@
 
 <script>
 import PostHandler from "@/components/Handlers/PostHandler.vue";
+
 export default {
   components: { PostHandler },
   data() {
@@ -66,7 +68,7 @@ export default {
   },
   methods: {
     async getPosts() {
-      await this.$store.dispatch("getAll");
+      await this.$store.dispatch("index");
       this.posts = this.$store.getters.posts;
     },
     editItem(item) {
@@ -78,7 +80,6 @@ export default {
       this.current = item;
     },
   },
-
   created() {
     this.getPosts();
   },
