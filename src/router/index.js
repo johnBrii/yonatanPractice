@@ -5,6 +5,7 @@ import DashBoard from '../views/DashBoard.vue'
 import Login from "../views/Login.vue"
 import Post from "@/views/Post.vue"
 import store from '../store/index'
+import vuetifyTrain from "../views/vuetifyTrain.vue"
 
 Vue.use(router)
 
@@ -21,6 +22,11 @@ const VueRouter = new router({
             path: '/post',
             name: 'Post',
             component: Post
+        },
+        {
+            path: '/vuetifyTrain',
+            name: 'vuetifyTrain',
+            component: vuetifyTrain
         },
         {
             path: '/DashBoard',

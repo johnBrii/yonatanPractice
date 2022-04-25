@@ -6,6 +6,9 @@
       <router-link to="/Post" class="ml-4"
         ><v-icon>mdi-message </v-icon></router-link
       >
+      <router-link to="/vuetifyTrain" class="ml-4"
+        ><v-icon>mdi-train </v-icon></router-link
+      >
     </v-app-bar>
     <v-main>
       <router-view />
