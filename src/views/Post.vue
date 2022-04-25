@@ -82,7 +82,7 @@ export default {
   },
   created() {
     let posts = this.$store.getters.posts;
-    if (posts.length === 0) {
+    if (posts.length) {
       this.getPosts();
     }
   },
