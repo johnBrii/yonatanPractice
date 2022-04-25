@@ -81,7 +81,10 @@ export default {
     },
   },
   created() {
-    this.getPosts();
+    let posts = this.$store.getters.posts;
+    if (posts.length === 0) {
+      this.getPosts();
+    }
   },
 };
 </script>
