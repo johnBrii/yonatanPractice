@@ -1,25 +1,33 @@
 <template>
-  <v-container fluid fill-height grow class="pa-0">
-    <v-row no-gutters>
-      <v-col class="d-none d-lg-flex d-xl-flex green"> </v-col>
-      <v-col class="d-none d-md-flex d-lg-flex d-xl-flex red"> </v-col>
-      <v-col class="d-flex blue">
-        <v-card height="26vh" color="red"></v-card
-      ></v-col>
-    </v-row>
-    <v-row no-gutters>
-      <v-col class="d-none d-lg-flex d-xl-flex green"> </v-col>
-      <v-col class="d-none d-md-flex d-lg-flex d-xl-flex red"></v-col>
-      <v-col class="d-flex blue">
-        <v-card height="26vh" color="red"></v-card
-      ></v-col>
-    </v-row>
-    <v-row no-gutters>
-      <v-col class="d-none d-lg-flex d-xl-flex green"> </v-col>
-      <v-col class="d-none d-md-flex d-lg-flex d-xl-flex red"> </v-col>
-      <v-col class="d-flex blue">
-        <v-card height="26vh" color="red"></v-card
-      ></v-col>
+  <v-container fluid fill-height class="pa-0">
+    <v-row wrap no-gutters>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="red"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="green"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="blue"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="red"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="green"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="blue"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="red"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="green"></v-card>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" xl="4" lg="4"
+        ><v-card height="26vh" color="blue"></v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
