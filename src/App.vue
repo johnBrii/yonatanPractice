@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
+      <h1>hello binyamin</h1>
       <router-link to="/DashBoard"><v-icon>mdi-home </v-icon></router-link>
 
       <router-link to="/Post" class="ml-4"
