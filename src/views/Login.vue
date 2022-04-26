@@ -15,7 +15,7 @@
             <v-text-field
               v-model="username"
               name="username"
-              label="Username"
+              label="binyamin"
               type="email"
               placeholder="username"
               required
