@@ -35,7 +35,7 @@ export default {
     return {
       editor: false,
       post: {},
-      textRules: [(v) => !!v || "this field is required"],
+      textRules: [(v) => !!v || "this field is required!"],
     };
   },
   methods: {

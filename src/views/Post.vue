@@ -49,6 +49,7 @@
 import PostHandler from "@/components/Handlers/PostHandler.vue";
 
 export default {
+  name: "postY",
   components: { PostHandler },
   data() {
     return {
